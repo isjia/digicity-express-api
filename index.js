@@ -23,17 +23,13 @@ db.once('open', function() {
 
 
   User.findById({_id: '57ecbcdf4d95146106254fe0'}, function(err, user) {
-    user.name = 'rrrrrr'
-    user.save(function(err){
-      console.log('更新了！')
+    user.remove(function(err){
+      console.log('删除了！')
       User.find().exec(function(err, users) {
         // 异步执行
         console.log(users);
       });
     });
   });
-
-  console.log("我先出来了")
-
 
 })
