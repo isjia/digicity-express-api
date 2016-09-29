@@ -1,35 +1,32 @@
-var mongoose = require('mongoose')
+var express = require('express');
+var app = express();
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var routes = require('./routes');
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/api')
+mongoose.connect('mongodb://localhost:27017/react-express-api');
+
+app.use(bodyParser.json());
 
 
+app.use(bodyParser.json());
 
-var db = mongoose.connection
+var logger = require('morgan');
+app.use(logger('dev'));
 
-// db.on('error', console.error.bind(console, 'connection error:'))
 
+var routes = require('./routes');
+
+
+routes(app);
+
+var db = mongoose.connection;
+db.on('error', console.log);
 db.once('open', function() {
-  var userSchema = mongoose.Schema({
-    name: String,
-    password: String,
-    age: String
-  })
+  console.log('success!')
+});
 
-  var User = mongoose.model('user', userSchema);
-  // cat 是实际数据库中记录的名字
-  // var peter = new user({ name: 'pppeter', password: '111', age: '33' });
-  // // 成功构建一条数据记录
-  // peter.save()
-
-
-  User.findById({_id: '57ecbcdf4d95146106254fe0'}, function(err, user) {
-    user.remove(function(err){
-      console.log('删除了！')
-      User.find().exec(function(err, users) {
-        // 异步执行
-        console.log(users);
-      });
-    });
-  });
-
-})
+app.listen(3000, function() {
+  console.log('Your server is running on port 3000');
+});
