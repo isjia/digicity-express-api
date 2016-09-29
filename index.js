@@ -19,7 +19,12 @@ db.once('open', function() {
   var peter = new user({ name: 'pppeter', password: '111', age: '33' });
   // 成功构建一条数据记录
   peter.save()
-  console.log(user.find());
+
+
+  peter.name = 'peterpeter'
+  peter.password = 'aaabbb'
+  peter.save()
+
 
   user.find().exec(function(err, users) {
     // 异步执行
