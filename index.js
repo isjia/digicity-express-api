@@ -2,6 +2,8 @@ var express = require('express');
 var  app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 app.get('/write', function(req, res) {
   var page = "<form method='post' action='/posts'>" +
@@ -23,7 +25,7 @@ app.put('/posts/:id', function(req, res) {
   console.log('PUT /posts/:id')
 })
 app.post('/posts/', function(req, res) {
-  res.send(req.body.title)
+  res.send('the post title is: ' + req.body.title)
 })
 app.listen(3000, function() {
   console.log('running on port 3000')
