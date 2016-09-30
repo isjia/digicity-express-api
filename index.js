@@ -16,14 +16,6 @@ app.get('/posts', function(req, res) {
   res.send('GET /posts')
   console.log('GET /posts')
 })
-app.get('/posts/:id', function(req, res) {
-  res.send('GET /posts/:id')
-  console.log('GET /posts/:id')
-})
-app.put('/posts/:id', function(req, res) {
-  res.send('PUT /posts/:id')
-  console.log('PUT /posts/:id')
-})
 app.post('/posts/', function(req, res) {
   res.send('the post title is: ' + req.body.title)
 })
