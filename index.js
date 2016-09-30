@@ -1,6 +1,13 @@
 var express = require('express');
 var  app = express();
 
+app.get('/write', function(req, res) {
+  var page = "<form method='post' action='/posts'>" +
+             "<input type='text' name='title' />" +
+             "<input type='submit' />" +
+             "</form>"
+  res.send(page)
+})
 app.get('/posts', function(req, res) {
   res.send('GET /posts')
   console.log('GET /posts')
@@ -14,7 +21,7 @@ app.put('/posts/:id', function(req, res) {
   console.log('PUT /posts/:id')
 })
 app.post('/posts/', function(req, res) {
-  res.send('POST /posts/')
+  res.send('The Blog title is' + req.query.title)
   console.log('POST /posts')
 })
 app.delete('/posts/:id', function(req, res) {
