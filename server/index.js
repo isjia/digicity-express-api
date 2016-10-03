@@ -17,16 +17,10 @@ db.once('open', function() {
   console.log('success!')
 });
 
-app.get('/', function(req, res) {
-  var page = "<form method='post' action='/posts'>" +
-             "<input type='text' name='title' />" +
-             "<input type='submit' />" +
-             "</form>"
-  res.send(page)
-})
+
 app.get('/posts', function(req, res) {
-  Post.find().sort({'createdAt': -1}).exec(function(err, posts) {
-    res.send(posts)
+  Post.find().exec(function(err, posts) {
+    res.json({ post: posts})
   });
 })
 app.post('/posts/', function(req, res) {
