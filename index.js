@@ -25,8 +25,9 @@ app.get('/', function(req, res) {
   res.send(page)
 })
 app.get('/posts', function(req, res) {
-  res.send('GET /posts')
-  console.log('GET /posts')
+  Post.find().sort({'createdAt': -1}).exec(function(err, posts) {
+      res.send(posts)
+  });
 })
 app.post('/posts/', function(req, res) {
   // res.send('the post title is: ' + req.body.title)
@@ -35,6 +36,7 @@ app.post('/posts/', function(req, res) {
     if(err) console.log(err);
     console.log('saved!');
   })
+  res.redirect('/posts');
 })
 app.listen(3000, function() {
   console.log('running on port 3000')
