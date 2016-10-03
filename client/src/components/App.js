@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class App extends Component {
   constructor() {
@@ -9,6 +10,9 @@ export default class App extends Component {
   }
   componentWillMount() {
     console.log('hello will mount');
+    axios.get('http://localhost:3000/posts', function(res){
+
+    })
     // 再此处发 Ajax 请求，
     // 请求服务器端的 json 数据
   }

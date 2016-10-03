@@ -20,7 +20,7 @@ db.once('open', function() {
 
 app.get('/posts', function(req, res) {
   Post.find().exec(function(err, posts) {
-    res.json({ post: posts})
+    res.json({ posts: posts})
   });
 })
 app.post('/posts/', function(req, res) {
