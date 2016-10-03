@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 })
 app.get('/posts', function(req, res) {
   Post.find().sort({'createdAt': -1}).exec(function(err, posts) {
-      res.send(posts)
+    res.send(posts)
   });
 })
 app.post('/posts/', function(req, res) {
