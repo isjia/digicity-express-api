@@ -22,7 +22,7 @@ export default class PostList extends Component {
     let posts = this.state.posts.map( (item,i) => <p key={i}>{item.title}</p>)
     return(
       <div>
-        <h1> PostList</h1>
+        <h1> MY PostList</h1>
         { posts }
       </div>
     );
