@@ -31,7 +31,7 @@ app.get('/posts', function(req, res) {
   });
 })
 app.get('/post/:id', function(req, res) {
-  Post.findOne({_id:req.params.id},function (err,doc) {
+  Post.findById({_id:req.params.id},function (err,doc) {
     if (err) return res.send('出错了');
     res.json({post: doc})
   })
