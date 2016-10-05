@@ -30,14 +30,14 @@ app.get('/posts', function(req, res) {
     res.json({ posts: posts})
   });
 })
-app.post('/posts/', function(req, res) {
+app.post('/posts', function(req, res) {
   // res.send('the post title is: ' + req.body.title)
   var post = new Post({title: req.body.title});
   post.save(function(err){
-    if(err) console.log(err);
+    if(err) return console.log(err);
     console.log('saved!');
   })
-  res.redirect('/posts');
+  res.json({message:"保存成功"})
 })
 app.listen(3000, function() {
   console.log('running on port 3000')
