@@ -30,6 +30,12 @@ app.get('/posts', function(req, res) {
     res.json({ posts: posts})
   });
 })
+app.get('/post/:id', function(req, res) {
+  Post.findOne({_id:req.params.id},function (err,doc) {
+    if (err) return res.send('出错了');
+    res.json({post: doc})
+  })
+})
 app.post('/posts', function(req, res) {
   // res.send('the post title is: ' + req.body.title)
   console.log(req.body);

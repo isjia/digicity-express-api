@@ -37,6 +37,11 @@ export default class PostList extends Component {
         borderRadius:'5px',
         textAlign:'center',
         margin:'10px auto'
+      },
+      a:{
+        position:'absolute',
+        right:'16px',
+        top:'20px'
       }
     }
   }
@@ -56,6 +61,9 @@ export default class PostList extends Component {
       return (
         <div style={styles.content} key={post._id}>
           <div style={styles.title}>{post.title}</div>
+          <div style={styles.a}>
+            <Link to={`/post/${post._id}`}>查看</Link>
+          </div>
         </div>
       )
     }, this.state.posts);
