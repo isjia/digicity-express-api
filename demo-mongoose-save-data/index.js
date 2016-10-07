@@ -1,6 +1,17 @@
 var express = require('express');
+
+var Schema = mongoose.Schema;
+
+var PostSchema = new Schema(
+  {
+    title: String,
+    content: String
+  }
+);
+
 var app = express();
 var mongoose = require('mongoose');
+
 
 
 app.post('/posts', function(req, res){
