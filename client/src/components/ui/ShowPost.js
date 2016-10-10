@@ -57,7 +57,9 @@ class ShowPost extends React.Component {
     var styles = this.getStyles();
     return(
       <div>
+        <div style={styles.title}>{this.state.post.title}</div>
         <div style={styles.text}>{this.state.post.content}</div>
+        <div style={styles.category}>{this.state.post.category}</div>
       </div>
     )
   }
