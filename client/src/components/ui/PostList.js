@@ -64,6 +64,8 @@ export default class PostList extends Component {
           <div style={styles.title}>{post.title}</div>
           <div style={styles.a}>
             <Link to={`/posts/${post._id}`} style={styles.link}>查看</Link>
+            <Link to={`/posts/${post._id}/edit`} style={styles.link}>编辑</Link>
+
           </div>
         </div>
       )
