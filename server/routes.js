@@ -12,6 +12,10 @@ module.exports = function(app) {
       res.json({post: doc})
     })
   })
+  app.put('/posts/:id', function(req, res) {
+    console.log(req.params.id);
+    res.json({peter: "hi everyone!"});
+  })
   app.post('/posts', function(req, res) {
     // res.send('the post title is: ' + req.body.title)
     console.log(req.body);
