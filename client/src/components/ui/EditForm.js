@@ -21,11 +21,8 @@ export default class EditForm extends React.Component {
     //   category
     // }
     console.log({title, content, category});
-    this.publishPost({title, content, category});
+    this.props.publishPost({title, content, category});
     //http://babeljs.cn/repl/# you can try es6 Here
-  }
-  publishPost(data) {
-    axios.put(`${Settings.host}/posts/${id}`)
   }
    render() {
      return(

@@ -13,6 +13,7 @@ export default class PostList extends Component {
       post: {}
     }
   }
+
   componentDidMount() {
     var id = this.props.params.id;
     console.log(id);
@@ -24,10 +25,17 @@ export default class PostList extends Component {
       console.log(res);
     });
   }
+  publishPost(data) {
+    //  REST
+    var id = this.props.params.id;
+    axios.put(`${Settings.host}/posts/${id}`).then(res => {
+      console.log(res.data);
+    });
+  }
   render(){
     return(
       <div>
-        {!isEmpty(this.state.post) ? <EditForm post={this.state.post} /> : ""}
+        {!isEmpty(this.state.post) ? <EditForm post={this.state.post} publishPost={this.publishPost.bind(this)}/> : ""}
       </div>
     )
   }
