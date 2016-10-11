@@ -4,7 +4,24 @@ export default class EditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('submit');
-    console.log(this.refs.title.value);
+    const title= this.refs.title.value;
+    const content= this.refs.content.value;
+    const category= this.refs.category.value;
+    // {title:"hello", content: "my content", category: "tig"}
+    // var dataObject = {
+    //   title: title,
+    //   content: content,
+    //   category: category
+    // }
+    // // http://es6.ruanyifeng.com/#docs/object#属性的简洁表示法
+    //
+    // var dataObject = {
+    //   title,
+    //   content,
+    //   category
+    // }
+    this.publishPost({title, content, category});
+    //http://babeljs.cn/repl/# you can try es6 Here
   }
    render() {
      return(
@@ -16,11 +33,11 @@ export default class EditForm extends React.Component {
           </div>
            <div>
              <label>content</label>
-             <textarea defaultValue={this.props.post.content} />
+             <textarea ref="content" defaultValue={this.props.post.content} />
            </div>
           <div>
             <label>category</label>
-            <input defaultValue={this.props.post.category} />
+            <input ref="category" defaultValue={this.props.post.category} />
           </div>
            <input type="submit" />
          </form>
