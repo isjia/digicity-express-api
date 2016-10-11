@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Settings from '../../settings';
+import EditForm from './EditForm';
 
 
 export default class PostList extends Component {
@@ -23,8 +24,7 @@ export default class PostList extends Component {
   render(){
     return(
       <div>
-      "helllo"
-        {JSON.stringify(this.state.post)}
+        <EditForm post={this.state.post} />
       </div>
     )
   }
