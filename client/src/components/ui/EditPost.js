@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Settings from '../../settings';
+
 
 export default class PostList extends Component {
   constructor() {
@@ -11,7 +13,7 @@ export default class PostList extends Component {
   componentDidMount() {
     var id = this.props.params.id;
     console.log(id);
-    axios.get(`http://localhost:3000/post/${id}`).then(res => {
+    axios.get(`${Settings.host}/post/${id}`).then(res => {
       this.setState({
         post: res.data.post
       });
@@ -21,9 +23,9 @@ export default class PostList extends Component {
   render(){
     return(
       <div>
+      "helllo"
         {JSON.stringify(this.state.post)}
       </div>
     )
   }
-
 }
