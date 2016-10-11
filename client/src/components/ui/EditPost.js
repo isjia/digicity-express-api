@@ -11,9 +11,9 @@ export default class PostList extends Component {
   componentDidMount() {
     var id = this.props.params.id;
     console.log(id);
-    // axios.get('http://localhost:3000/post/xxxxxxxxx').then(res => {
-    //
-    // })
+    axios.get(`http://localhost:3000/post/${id}`).then(res => {
+      console.log(res);
+    });
   }
   render(){
     return(
