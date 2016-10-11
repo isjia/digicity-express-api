@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 
 export default class EditForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      title: this.props.post.title
-    }
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('submit');
   }
    render() {
      return(
        <div>
-         {JSON.stringify(this.props.post)}
-         <form >
-          { console.log(this.props.post.title)}
-           <input defaultValue={this.state.title} />
+         <form onSubmit={this.handleSubmit}>
+          <div>
+            <label>title</label>
+            <input defaultValue={this.props.post.title} />
+          </div>
+           <div>
+             <label>content</label>
+             <textarea defaultValue={this.props.post.content} />
+           </div>
+          <div>
+            <label>category</label>
+            <input defaultValue={this.props.post.category} />
+          </div>
+           <input type="submit" />
          </form>
        </div>
      )

@@ -27,9 +27,8 @@ export default class PostList extends Component {
   render(){
     return(
       <div>
-        { !isEmpty(this.state.post) ? <EditForm post={this.state.post} />: "plz wait..."}
+        {!isEmpty(this.state.post) ? <EditForm post={this.state.post} /> : ""}
       </div>
-
     )
   }
 }
