@@ -12,12 +12,17 @@ export default class PostList extends Component {
     var id = this.props.params.id;
     console.log(id);
     axios.get(`http://localhost:3000/post/${id}`).then(res => {
+      this.setState({
+        post: res.data.post
+      });
       console.log(res);
     });
   }
   render(){
     return(
-      <div> EditPost </div>
+      <div>
+        {JSON.stringify(this.state.post)}
+      </div>
     )
   }
 
