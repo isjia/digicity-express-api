@@ -13,9 +13,18 @@ module.exports = function(app) {
     })
   })
   app.put('/posts/:id', function(req, res) {
-    console.log(req.params.id);
-    console.log(req.body);
-    res.json({peter: "hi everyone!"});
+    Post.findById({_id: req.params.id}, function(err, post) {
+      if (err) return res.status(500).json({error:  err.message});
+      for (prop in req.body) {
+        post[prop] = req.body[prop];
+      }
+      post.save(function(err) {
+        if (err) return res.status(500).json({error: err.message});
+        res.json({
+          message: '文章更新成功了！'
+        });
+      });
+    });
   })
   app.post('/posts', function(req, res) {
     // res.send('the post title is: ' + req.body.title)
