@@ -28,7 +28,7 @@ export default class PostList extends Component {
   publishPost(data) {
     //  REST
     var id = this.props.params.id;
-    axios.put(`${Settings.host}/posts/${id}`).then(res => {
+    axios.put(`${Settings.host}/posts/${id}`, data).then(res => {
       console.log(res.data);
     });
   }

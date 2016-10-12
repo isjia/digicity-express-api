@@ -14,6 +14,7 @@ module.exports = function(app) {
   })
   app.put('/posts/:id', function(req, res) {
     console.log(req.params.id);
+    console.log(req.body);
     res.json({peter: "hi everyone!"});
   })
   app.post('/posts', function(req, res) {
