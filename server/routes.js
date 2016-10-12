@@ -16,6 +16,7 @@ module.exports = function(app) {
     Post.findById({_id: req.params.id}, function(err, post) {
       if (err) return res.status(500).json({error:  err.message});
       for (prop in req.body) {
+        console.log(prop);
         post[prop] = req.body[prop];
       }
       post.save(function(err) {

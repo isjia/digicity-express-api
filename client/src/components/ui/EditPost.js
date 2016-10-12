@@ -6,7 +6,7 @@ import isEmpty from 'lodash/fp/isEmpty';
 
 
 
-export default class PostList extends Component {
+export default class EditPost extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,7 +29,8 @@ export default class PostList extends Component {
     //  REST
     var id = this.props.params.id;
     axios.put(`${Settings.host}/posts/${id}`, data).then(res => {
-      console.log(res.data);
+      console.log("aaaaaaaa");
+      this.context.router.push('/');
     });
   }
   render(){
@@ -40,3 +41,7 @@ export default class PostList extends Component {
     )
   }
 }
+
+EditPost.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
