@@ -33,9 +33,29 @@ export default class EditPost extends Component {
       this.context.router.push('/');
     });
   }
-  render(){
-    return(
-      <div>
+
+  getStyles() {
+   return {
+     content: {
+       width: '100%',
+       maxWidth: '600px',
+       margin: '30px auto',
+       backgroundColor: '#fff',
+       borderRadius: '10px',
+       boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
+     },
+     title: {
+       fontSize: '1.2em',
+       textAlign: 'center',
+       paddingTop: '20px'
+     }
+   };
+ }
+
+ render() {
+   const styles = this.getStyles();
+   return (
+     <div style={styles.content}>
         {!isEmpty(this.state.post) ? <EditForm post={this.state.post} publishPost={this.publishPost.bind(this)}/> : ""}
       </div>
     )
