@@ -72,6 +72,7 @@ export default class PostList extends Component {
     console.log("----handleClick!!!");
     axios.delete(`${Settings.host}/posts/${value}`).then(res => {
       console.log('deleted!');
+      // 筛除已经删除的这个 post
     })
   }
   render() {
