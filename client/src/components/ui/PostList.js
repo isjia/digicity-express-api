@@ -66,6 +66,9 @@ export default class PostList extends Component {
       // console.log(this.state.posts);
     });
   }
+  handleClick() {
+    alert('hello clicked');
+  }
   render() {
     const styles = this.getStyles();
     const postList = map((post) => {
@@ -75,6 +78,7 @@ export default class PostList extends Component {
           <div style={styles.actions}>
             <Link to={`/posts/${post._id}`} style={styles.link}>查看</Link>
             <Link to={`/posts/${post._id}/edit`} style={styles.link}>编辑</Link>
+            <Link to={``} style={styles.link} onClick={this.handleClick}>删除</Link>
           </div>
         </div>
       )
