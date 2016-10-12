@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import map from 'lodash/fp/map';
 import axios from 'axios';
 import { Link } from 'react-router';
+import Settings from '../../settings';
 
 
 export default class PostList extends Component {
@@ -67,7 +68,11 @@ export default class PostList extends Component {
     });
   }
   handleClick(value) {
-    alert(value);
+    // REST
+    console.log("----handleClick!!!");
+    axios.delete(`${Settings.host}/posts/${value}`).then(res => {
+      console.log('deleted!');
+    })
   }
   render() {
     const styles = this.getStyles();

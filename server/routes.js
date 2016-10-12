@@ -12,6 +12,10 @@ module.exports = function(app) {
       res.json({post: doc})
     })
   })
+  app.delete('/posts/:id', function(req, res) {
+    console.log(req.params.id);
+    res.send('hello');
+  })
   app.put('/posts/:id', function(req, res) {
     Post.findById({_id: req.params.id}, function(err, post) {
       if (err) return res.status(500).json({error:  err.message});
