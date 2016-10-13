@@ -3,7 +3,7 @@ import map from 'lodash/fp/map';
 import axios from 'axios';
 import { Link } from 'react-router';
 import Settings from '../../settings';
-// import filter from 'lodash/fp/filter';
+import filter from 'lodash/fp/filter';
 
 
 
@@ -79,12 +79,16 @@ export default class PostList extends Component {
   // }
   filterPosts(id) {
     // this.state.posts
-    alert(id);
+    var newPosts = filter((post) => {
+      return post._id !== id
+    }, this.state.posts);
+    this.setState({
+      posts: newPosts
+    })
 
   }
   handleClick(value) {
     // REST
-    console.log("----handleClick!!!");
     axios.delete(`${Settings.host}/posts/${value}`).then(res => {
       console.log('filering..!');
       // 修改 this.state.posts 里面删除一个 Post
