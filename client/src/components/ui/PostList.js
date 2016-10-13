@@ -3,7 +3,7 @@ import map from 'lodash/fp/map';
 import axios from 'axios';
 import { Link } from 'react-router';
 import Settings from '../../settings';
-import filter from 'lodash/fp/filter';
+// import filter from 'lodash/fp/filter';
 
 
 
@@ -70,13 +70,13 @@ export default class PostList extends Component {
     });
   }
 
-  filterPosts(id) {
-    const posts = filter((post) => {
-      return post._id !== id
-    }, this.state.posts);
-
-    this.setState({ posts: posts })
-  }
+  // filterPosts(id) {
+  //   const posts = filter((post) => {
+  //     return post._id !== id
+  //   }, this.state.posts);
+  //
+  //   this.setState({ posts: posts })
+  // }
   handleClick(value) {
     // REST
     console.log("----handleClick!!!");
